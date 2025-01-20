@@ -1,5 +1,5 @@
 import "./Hero.css";
-import backgroundImage from "../assets/images/landing_image.webp"; // Import the image
+import backgroundImage from "../assets/images/landing_image.jpg"; // Import the image
 
 const Hero = () => {
   return (
