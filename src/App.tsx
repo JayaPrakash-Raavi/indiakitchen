@@ -18,9 +18,10 @@ function App() {
     setIsMenuOpen(false);
   };
 
-  const handleOutsideClick = (event) => {
+
+  const handleOutsideClick = (event: React.MouseEvent) => {
     const navbar = document.querySelector(".navbar");
-    if (!navbar.contains(event.target)) {
+    if (navbar && !navbar.contains(event.target as Node)) {
       closeMenu(); // Close menu if clicked outside
     }
   };

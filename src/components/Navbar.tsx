@@ -1,7 +1,13 @@
 import { Link } from "react-router-dom";
 import logo from "../assets/images/indiakitchen-logo-s.png"; // Adjust the path as needed
 import "./Navbar.css";
-const Navbar = ({ isMenuOpen, toggleMenu, closeMenu }) => {
+interface NavbarProps {
+  isMenuOpen: boolean;
+  toggleMenu: () => void;
+  closeMenu: () => void;
+}
+
+const Navbar: React.FC<NavbarProps> = ({ isMenuOpen, toggleMenu, closeMenu }) => {
   return (
     <header>
       {/* Top Bar */}
