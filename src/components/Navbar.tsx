@@ -1,17 +1,7 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
-
-const Navbar = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
-
-  const closeMenu = () => {
-    setIsMenuOpen(false); // Close the menu after a link is clicked
-  };
-
+import logo from "../assets/images/indiakitchen-logo-s.png"; // Adjust the path as needed
+import "./Navbar.css";
+const Navbar = ({ isMenuOpen, toggleMenu, closeMenu }) => {
   return (
     <header>
       {/* Top Bar */}
@@ -24,9 +14,11 @@ const Navbar = () => {
       {/* Navbar */}
       <nav className="navbar">
         <div className="navbar-brand">
-          <h1>India Kitchen</h1>
+          <Link to="/">
+            <img src={logo} alt="India Kitchen Logo" className="logo" />
+          </Link>
           <button className="menu-toggle" onClick={toggleMenu}>
-            ☰
+            {isMenuOpen ? "✖" : "☰"}
           </button>
         </div>
         <ul className={`nav-links ${isMenuOpen ? "active" : ""}`}>

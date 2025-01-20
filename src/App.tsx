@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { useState } from "react";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Menu from "./components/Menu";
@@ -7,16 +8,39 @@ import Menu from "./components/Menu";
 import "./App.css";
 
 function App() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen((prev) => !prev);
+  };
+
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+  };
+
+  const handleOutsideClick = (event) => {
+    const navbar = document.querySelector(".navbar");
+    if (!navbar.contains(event.target)) {
+      closeMenu(); // Close menu if clicked outside
+    }
+  };
+
   return (
-    <Router>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Hero />} />
-        <Route path="/menu" element={<Menu />} />
-        {/* <Route path="/about" element={<About />} /> */}
-        {/* <Route path="/contact" element={<Contact />} /> */}
-      </Routes>
-    </Router>
+    <div onClick={handleOutsideClick}>
+      <Router>
+        <Navbar
+          isMenuOpen={isMenuOpen}
+          toggleMenu={toggleMenu}
+          closeMenu={closeMenu}
+        />
+        <Routes>
+          <Route path="/" element={<Hero />} />
+          <Route path="/menu" element={<Menu />} />
+          {/* <Route path="/about" element={<About />} /> */}
+          {/* <Route path="/contact" element={<Contact />} /> */}
+        </Routes>
+      </Router>
+    </div>
   );
 }
 
