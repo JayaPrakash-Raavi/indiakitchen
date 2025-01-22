@@ -5,9 +5,12 @@ interface NavbarProps {
   isMenuOpen: boolean;
   toggleMenu: () => void;
   closeMenu: () => void;
+  cartItems: any[]; // Adjust the type as needed
 }
 
-const Navbar: React.FC<NavbarProps> = ({ isMenuOpen, toggleMenu, closeMenu }) => {
+const Navbar: React.FC<NavbarProps> = ({ isMenuOpen, toggleMenu, closeMenu ,cartItems }) => {
+  const totalItems = cartItems.reduce((acc, item) => acc + item.quantity, 0);
+
   return (
     <header>
       {/* Top Bar */}
@@ -47,6 +50,9 @@ const Navbar: React.FC<NavbarProps> = ({ isMenuOpen, toggleMenu, closeMenu }) =>
             <Link to="/contact" onClick={closeMenu}>
               Contact Us
             </Link>
+          </li>
+          <li>
+            <Link to="/cart">Cart ({totalItems})</Link>
           </li>
         </ul>
       </nav>

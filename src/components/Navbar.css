@@ -19,6 +19,7 @@
     margin-right: 20px; /* Add space between logo and links */
   }
   
+  
   /* Navbar Links */
   .nav-links {
     list-style: none;
@@ -28,6 +29,7 @@
   
   .nav-links li {
     display: inline-block;
+    white-space: nowrap; /* Prevent text wrapping */
   }
   
   .nav-links a {
@@ -38,7 +40,7 @@
   }
   
   .nav-links a:hover {
-    color: #D4AF37; /* Gold color for hover */
+    color: #D4AF37;
   }
   
   /* Mobile Menu Button */
