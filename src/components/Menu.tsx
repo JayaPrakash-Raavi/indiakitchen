@@ -1,5 +1,5 @@
 import menuItems1 from "../assets/menu/menu"; // Adjust the path to your menu file
-import "./Menu.css";
+import "./menu.css";
 
 type MenuProps = {
   updateCart: (
