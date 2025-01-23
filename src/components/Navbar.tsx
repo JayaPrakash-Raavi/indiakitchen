@@ -8,7 +8,12 @@ interface NavbarProps {
   cartItems: any[]; // Adjust the type as needed
 }
 
-const Navbar: React.FC<NavbarProps> = ({ isMenuOpen, toggleMenu, closeMenu ,cartItems }) => {
+const Navbar: React.FC<NavbarProps> = ({
+  isMenuOpen,
+  toggleMenu,
+  closeMenu,
+  cartItems,
+}) => {
   const totalItems = cartItems.reduce((acc, item) => acc + item.quantity, 0);
 
   return (
@@ -54,6 +59,51 @@ const Navbar: React.FC<NavbarProps> = ({ isMenuOpen, toggleMenu, closeMenu ,cart
           <li>
             <Link to="/cart" onClick={closeMenu}>Cart ({totalItems})</Link>
           </li>
+          {/* <li className="dropdown">
+            <span className="dropdown-toggle">Order Online</span>
+            <ul className="dropdown-menu">
+              <li>
+                <a
+                  href="https://www.ubereats.com/store/india-kitchen/lTq5zqcoUzO-7lltAWxXHQ?diningMode=DELIVERY"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={closeMenu}
+                >
+                  Uber Eats
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.instacart.com/store"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={closeMenu}
+                >
+                  Instacart
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.grubhub.com/restaurant/india-kitchen-3573-southern-ave-memphis/7922584n"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={closeMenu}
+                >
+                  Grubhub
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.yelp.com/biz/india-kitchen-memphis"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={closeMenu}
+                >
+                  Yelp
+                </a>
+              </li>
+            </ul>
+          </li> */}
         </ul>
       </nav>
     </header>

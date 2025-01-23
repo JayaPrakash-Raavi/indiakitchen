@@ -1,82 +1,146 @@
 /* Navbar Container */
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    background-color: #000;
-    color: white;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
-  }
-  
-  /* Logo Styling */
-  .logo {
-    width: 50px; /* Adjust size as needed */
-    /* height: auto; */
-    margin-right: 20px; /* Add space between logo and links */
-  }
-  
-  
-  /* Navbar Links */
-  .nav-links {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-  }
-  
-  .nav-links li {
-    display: inline-block;
-    white-space: nowrap; /* Prevent text wrapping */
-  }
-  
-  .nav-links a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 16px;
-  }
-  
-  .nav-links a:hover {
-    color: #D4AF37;
-  }
-  
-  /* Mobile Menu Button */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #000;
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+/* Logo Styling */
+.logo {
+  width: 50px; /* Adjust size as needed */
+  /* height: auto; */
+  margin-right: 20px; /* Add space between logo and links */
+}
+
+/* Navbar Links */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links li {
+  display: inline-block;
+  white-space: nowrap; /* Prevent text wrapping */
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.nav-links a:hover {
+  color: #d4af37;
+}
+
+/* Mobile Menu Button */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
   .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
     display: none;
-    background: none;
-    border: none;
-    font-size: 24px;
-    color: white;
-    cursor: pointer;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background-color: #000;
+    text-align: center;
+    padding: 20px 0;
+    z-index: 1000;
   }
-  
-  @media (max-width: 768px) {
-    .menu-toggle {
-      display: block;
-    }
-  
-    .nav-links {
-      display: none;
-      flex-direction: column;
-      position: absolute;
-      top: 60px;
-      left: 0;
-      width: 100%;
-      background-color: #000;
-      text-align: center;
-      padding: 20px 0;
-      z-index: 1000;
-    }
-  
-    .nav-links.active {
-      display: flex;
-    }
-  
-    .nav-links li {
-      padding: 10px 0;
-    }
+
+  .nav-links.active {
+    display: flex;
   }
-  
+
+  .nav-links li {
+    padding: 10px 0;
+  }
+}
+
+/* Navbar.css */
+
+/* Navbar.css */
+
+/* Dropdown */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-toggle {
+  cursor: pointer;
+  padding: 10px;
+  color: white;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%; /* Position below the dropdown toggle */
+  left: 0;
+  background-color: #333;
+  display: none; /* Hidden by default */
+  flex-direction: column; /* Ensure vertical layout */
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000; /* Ensure it stays above other elements */
+  width: max-content; /* Adjust to fit content */
+}
+
+.dropdown-menu li {
+  padding: 10px 15px;
+  white-space: nowrap; /* Prevent text from wrapping */
+}
+
+.dropdown-menu li a {
+  color: white;
+  text-decoration: none;
+}
+
+.dropdown-menu li a:hover {
+  color: #b7791f;
+}
+
+/* Show dropdown menu on hover */
+.nav-links .dropdown:hover .dropdown-menu {
+  display: flex; /* Make it visible */
+}
+
+/* Ensure menu stays within view */
+.nav-links .dropdown-menu {
+  right: auto; /* Reset alignment */
+  left: auto; /* Adjust for positioning */
+}
+
+/* Mobile-specific adjustments */
+@media (max-width: 768px) {
+  .dropdown-menu {
+    position: static; /* Position within normal flow */
+    width: 100%; /* Make it full-width for small screens */
+  }
+}
