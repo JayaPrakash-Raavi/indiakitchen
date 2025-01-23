@@ -52,7 +52,7 @@ const Navbar: React.FC<NavbarProps> = ({ isMenuOpen, toggleMenu, closeMenu ,cart
             </Link>
           </li>
           <li>
-            <Link to="/cart">Cart ({totalItems})</Link>
+            <Link to="/cart" onClick={closeMenu}>Cart ({totalItems})</Link>
           </li>
         </ul>
       </nav>
